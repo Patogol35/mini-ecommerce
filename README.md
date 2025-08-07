@@ -1,4 +1,4 @@
-si# Mini E-commerce 🛒
+Mini E-commerce 🛒
 
 Proyecto creado con **React + Vite**, sin backend, simulando una tienda en línea con carrito de compras funcional.
 
