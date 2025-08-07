@@ -1,4 +1,4 @@
-# Mini E-commerce 🛒
+si# Mini E-commerce 🛒
 
 Proyecto creado con **React + Vite**, sin backend, simulando una tienda en línea con carrito de compras funcional.
 
@@ -26,4 +26,4 @@ Proyecto creado con **React + Vite**, sin backend, simulando una tienda en líne
 
 ---
 
-Desarrollado por Jorge Santamaría ✨
+Desarrollado por Jorge Patricio Santamaría Cherrez ✨
