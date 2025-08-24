@@ -2,7 +2,9 @@ Mini E-commerce 🛒
 
 Proyecto creado con **React + Vite**, sin backend, simulando una tienda en línea con carrito de compras funcional.
 
-## Funcionalidades
+---
+
+Funcionalidades
 
 - Ver listado de productos
 - Agregar al carrito
@@ -11,19 +13,39 @@ Proyecto creado con **React + Vite**, sin backend, simulando una tienda en líne
 - Total dinámico
 - Persistencia con LocalStorage
 
-## Tecnologías utilizadas
+---
+
+Tecnologías utilizadas
 
 - React
 - Context API
 - JavaScript
 - HTML & CSS personalizado
 
-## Cómo usar
+---
 
-1. Clona el repositorio
-2. Instala dependencias con `npm install`
-3. Ejecuta el proyecto con `npm run dev`
+Cómo instalar
+
+1. Clona el repositorio:
+
+git clone https://github.com/Patogol35/mini-ecommerce
+
+2. Ingresa a la carpeta del proyecto:
+
+cd mini-ecommerce
+
+3. Instala las dependencias:
+  
+npm install
+
+4. Ejecuta el proyecto con:
+
+npm run dev
 
 ---
 
-Desarrollado por Jorge Patricio Santamaría Cherrez ✨
+Desarrollado por:
+
+Jorge Patricio Santamaría Cherrez
+
+Máster en Ingeniería de Software y Sistemas Informáticos
