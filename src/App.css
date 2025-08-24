@@ -10,7 +10,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem 1rem 12rem; /* 👈 espacio para que el carrito no tape productos */
+  padding: 2rem 1rem 22rem; /* 👈 más espacio para carrito */
   text-align: center;
   background-color: #f4f6f9;
   color: #222;
@@ -33,31 +33,16 @@
   letter-spacing: 1px;
 }
 
-/* Grid de productos - deslizable */
+/* Grid de productos */
 .product-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
-  overflow-x: auto;
   padding: 20px;
-  scroll-behavior: smooth;
-}
-
-.product-grid::-webkit-scrollbar {
-  height: 8px;
-}
-
-.product-grid::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 4px;
-}
-
-.product-grid::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 /* Cards */
 .card {
-  flex: 0 0 250px;
   background-color: #fff;
   padding: 20px;
   border-radius: 15px;
@@ -124,8 +109,8 @@
   padding: 20px 25px;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -6px 25px rgba(0,0,0,0.15);
-  max-height: 350px;
-  overflow-y: auto;
+  max-height: 350px;       /* 👈 nunca crece más de esto */
+  overflow-y: auto;        /* 👈 scroll interno */
   transition: all 0.3s ease;
   z-index: 1000;
 }
@@ -176,25 +161,45 @@
   background: linear-gradient(135deg, #218838, #166628);
 }
 
-/* Responsive mobile */
+/* 📱 Responsive mobile */
 @media (max-width: 768px) {
   #root {
-    padding: 1rem 1rem 10rem; /* 👈 deja espacio para carrito */
+    padding: 1rem 1rem 18rem; /* 👈 ajusta espacio para carrito */
   }
 
   .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 12px;
     padding: 10px;
   }
 
   .card {
-    flex: 0 0 200px;
-    padding: 15px;
+    padding: 12px;
+  }
+
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .header h1 {
+    font-size: 24px;
   }
 
   .cart {
     max-width: 100%;
     border-radius: 15px 15px 0 0;
     max-height: 300px;
+  }
+
+  /* 🔹 Opción 2: Carrito colapsable en móvil */
+  .cart.collapsed {
+    max-height: 70px;   /* solo título/total */
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .cart.collapsed.open {
+    max-height: 70vh;   /* se expande cuando el usuario toca */
+    overflow-y: auto;
   }
 }
