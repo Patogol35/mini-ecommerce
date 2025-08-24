@@ -1,1 +1,226 @@
 
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Root container */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem 12rem; /* espacio extra para no tapar productos */
+  text-align: center;
+  background-color: #f4f6f9;
+  color: #222;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* Grid de productos */
+.product-grid {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.product-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+.product-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Cards */
+.card {
+  flex: 0 0 260px;
+  background-color: #fff;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin: 12px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+}
+
+.card p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+/* Botones */
+.card button,
+.pay-button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.card button:hover,
+.pay-button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f8a);
+  transform: scale(1.07);
+}
+
+/* Carrito en desktop */
+.cart {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  padding: 20px 25px;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -6px 25px rgba(0,0,0,0.15);
+  max-height: 350px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.cart h2 {
+  margin-bottom: 18px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  text-align: left;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding: 14px 0;
+}
+
+.cart-item:last-child {
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-controls button {
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cart-item-controls button:hover {
+  background-color: #ddd;
+  transform: scale(1.1);
+}
+
+/* Total */
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding-top: 20px;
+  font-size: 20px;
+  color: #111;
+  border-top: 2px solid #ddd;
+  margin-top: 15px;
+}
+
+/* Botón de pago */
+.pay-button {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  font-size: 16px;
+  padding: 12px 25px;
+  border-radius: 12px;
+}
+.pay-button:hover {
+  background: linear-gradient(135deg, #218838, #166628);
+}
+
+/* 📱 Responsive para móviles */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem 1rem 1rem; /* quitamos espacio extra en móvil */
+  }
+
+  .cart {
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: 100%;          /* carrito ocupa toda la pantalla */
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;      /* sin bordes redondeados */
+    padding: 20px;
+  }
+
+  .cart h2 {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .cart-total {
+    font-size: 22px;
+  }
+
+  .pay-button {
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 14px;
+    width: 100%;
+  }
+}
