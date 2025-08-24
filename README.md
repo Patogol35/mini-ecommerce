@@ -22,9 +22,9 @@ Proyecto creado con **React + Vite**, sin backend, simulando una tienda en líne
 - JavaScript
 - HTML & CSS personalizado
 
----
+--- 
 
-Cómo instalar
+📦 Instalación y ejecución
 
 1. Clona el repositorio:
 
