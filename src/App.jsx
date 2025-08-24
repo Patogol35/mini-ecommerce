@@ -4,13 +4,14 @@ import Home from './pages/Home'
 
 function App() {
   return (
-    <div className="container">
+    <div id="root">
       <Header />
-      <Home />
-      <Cart />
+      <div className="content">
+        <Home />
+        <Cart />
+      </div>
     </div>
   )
 }
 
 export default App
-
