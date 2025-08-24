@@ -1,4 +1,4 @@
-/* General Reset */
+/* 🌐 Reset general */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,92 +6,96 @@
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Root container */
+body {
+  background-color: #f9fafc;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* 📦 Contenedor raíz */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  text-align: center;
-  background-color: #f4f6f9;
-  color: #222;
 }
 
-/* Header */
+/* 🔹 Header */
 .header {
   text-align: center;
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  padding: 30px 20px;
+  background: linear-gradient(135deg, #0061f2, #0044a3);
+  padding: 35px 20px;
   margin-bottom: 40px;
   color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
 .header h1 {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 34px;
+  font-weight: 800;
   letter-spacing: 1px;
 }
 
-/* Contenedor general (productos + carrito) */
+/* 🛍️ Contenedor general */
 .content {
   display: flex;
-  flex-direction: column; /* móvil primero */
+  flex-direction: column; /* Mobile first */
+  gap: 20px;
 }
 
-/* Grid de productos */
+/* 🖼️ Grid de productos */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 25px;
   padding: 20px;
 }
 
-/* Cards */
+/* 🃏 Cards */
 .card {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .card img {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  border-radius: 14px;
+  margin-bottom: 18px;
 }
 
 .card h3 {
-  margin: 10px 0;
-  font-size: 20px;
-  font-weight: 600;
+  margin: 12px 0 6px;
+  font-size: 21px;
+  font-weight: 700;
   color: #111;
 }
 
 .card p {
-  color: #444;
+  color: #555;
   font-size: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
-/* Botones */
+/* 🔘 Botones */
 .card button,
 .pay-button {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: linear-gradient(135deg, #0061f2, #0044a3);
   color: white;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -99,31 +103,32 @@
 
 .card button:hover,
 .pay-button:hover {
-  background: linear-gradient(135deg, #0056b3, #003f8a);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #0044a3, #003080);
+  transform: scale(1.06);
 }
 
-/* Carrito (modo móvil/tablet por defecto) */
+/* 🛒 Carrito */
 .cart {
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 900px;
+  max-width: 950px;
   background-color: #fff;
-  padding: 20px 25px;
+  padding: 22px 26px;
   border-radius: 20px 20px 0 0;
-  box-shadow: 0 -6px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.15);
   overflow-y: auto;
   transition: all 0.3s ease;
   z-index: 1000;
 }
 
 .cart h2 {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   font-size: 22px;
-  color: #222;
+  font-weight: 700;
+  color: #111;
 }
 
 .cart-item {
@@ -131,16 +136,32 @@
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #eee;
-  padding: 12px 0;
+  padding: 14px 0;
+}
+
+.cart-item p {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.cart-item small {
+  color: #666;
+  font-size: 14px;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .cart-item-controls button {
   padding: 6px 10px;
-  margin: 0 3px;
   border-radius: 6px;
   background-color: #f1f1f1;
   border: none;
   cursor: pointer;
+  font-weight: bold;
   transition: background 0.2s ease;
 }
 
@@ -152,45 +173,47 @@
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  padding-top: 15px;
+  padding-top: 16px;
   font-size: 18px;
   color: #111;
+  border-top: 2px solid #eee;
+  margin-top: 12px;
 }
 
-/* Botón de pago */
+/* Botón pagar */
 .pay-button {
-  margin-top: 15px;
+  margin-top: 18px;
   background: linear-gradient(135deg, #28a745, #1e7e34);
 }
 .pay-button:hover {
   background: linear-gradient(135deg, #218838, #166628);
 }
 
-/* 📱 Responsive mobile (portrait) */
+/* 📱 Mobile portrait */
 @media (max-width: 768px) and (orientation: portrait) {
   .cart {
     max-width: 100%;
-    border-radius: 15px 15px 0 0;
+    border-radius: 16px 16px 0 0;
   }
 
-  /* Carrito colapsable en móvil */
   .cart.collapsed {
-    max-height: 70px;   /* solo título */
+    max-height: 70px;
     overflow: hidden;
     cursor: pointer;
   }
+
   .cart.open {
-    max-height: 70vh;   /* expandido */
+    max-height: 70vh;
     overflow-y: auto;
   }
 }
 
-/* 🖥️ Desktop: carrito a la derecha */
+/* 🖥️ Desktop */
 @media (min-width: 1024px) {
   .content {
     display: grid;
-    grid-template-columns: 3fr 1fr; /* productos | carrito */
-    gap: 20px;
+    grid-template-columns: 3fr 1fr;
+    gap: 24px;
     align-items: flex-start;
   }
 
@@ -200,8 +223,8 @@
     bottom: auto;
     transform: none;
     max-width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
     max-height: calc(100vh - 40px);
   }
 
@@ -212,29 +235,20 @@
   }
 }
 
-/* 📺 Landscape (móviles o tablets en horizontal) */
+/* 📺 Landscape (tablets/móviles) */
 @media (max-width: 1024px) and (orientation: landscape) {
   .content {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* productos | carrito */
-    gap: 15px;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
     align-items: flex-start;
   }
 
   .cart {
     position: sticky;
     top: 10px;
-    bottom: auto;
-    transform: none;
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
     max-height: calc(100vh - 20px);
-  }
-
-  .cart.collapsed,
-  .cart.open {
-    max-height: calc(100vh - 20px);
-    cursor: default;
   }
 }
