@@ -10,7 +10,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem 1rem 22rem; /* 👈 más espacio para carrito */
+  padding: 2rem 1rem 22rem; /* espacio suficiente para carrito en escritorio */
   text-align: center;
   background-color: #f4f6f9;
   color: #222;
@@ -109,8 +109,8 @@
   padding: 20px 25px;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -6px 25px rgba(0,0,0,0.15);
-  max-height: 350px;       /* 👈 nunca crece más de esto */
-  overflow-y: auto;        /* 👈 scroll interno */
+  max-height: 350px;
+  overflow-y: auto;
   transition: all 0.3s ease;
   z-index: 1000;
 }
@@ -164,7 +164,7 @@
 /* 📱 Responsive mobile */
 @media (max-width: 768px) {
   #root {
-    padding: 1rem 1rem 18rem; /* 👈 ajusta espacio para carrito */
+    padding: 1rem 1rem 8rem; /* menos espacio porque carrito será colapsable */
   }
 
   .product-grid {
@@ -189,17 +189,13 @@
   .cart {
     max-width: 100%;
     border-radius: 15px 15px 0 0;
-    max-height: 300px;
-  }
-
-  /* 🔹 Opción 2: Carrito colapsable en móvil */
-  .cart.collapsed {
-    max-height: 70px;   /* solo título/total */
+    max-height: 70px;   /* 👈 cerrado por defecto en móvil */
     overflow: hidden;
     cursor: pointer;
   }
-  .cart.collapsed.open {
-    max-height: 70vh;   /* se expande cuando el usuario toca */
+
+  .cart.open {
+    max-height: 70vh;   /* 👈 al abrir ocupa hasta el 70% de la pantalla */
     overflow-y: auto;
   }
 }
