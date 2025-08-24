@@ -40,7 +40,11 @@ npm install
 
 4. Ejecuta el proyecto:
 
-npm run dev
+npm run dev 
+
+5. Abre en el navegador:
+  
+http://localhost:5173
 
 ---
 
