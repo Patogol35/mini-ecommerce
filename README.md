@@ -38,7 +38,7 @@ cd mini-ecommerce
   
 npm install
 
-4. Ejecuta el proyecto con:
+4. Ejecuta el proyecto:
 
 npm run dev
 
