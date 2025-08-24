@@ -11,8 +11,8 @@ function Cart() {
     <div
       className={`cart ${isOpen ? "open" : "collapsed"}`}
       onClick={() => {
-        // Solo activar toggle en móvil
-        if (window.innerWidth <= 768) {
+        // Toggle solo en móvil vertical
+        if (window.innerWidth <= 768 && window.innerHeight > window.innerWidth) {
           setIsOpen(!isOpen);
         }
       }}
@@ -32,11 +32,28 @@ function Cart() {
                 </small>
               </div>
               <div className="cart-item-controls">
-                <button onClick={(e) => { e.stopPropagation(); decreaseQty(item.id); }}>-</button>
-                <span>{item.quantity}</span>
-                <button onClick={(e) => { e.stopPropagation(); increaseQty(item.id); }}>+</button>
                 <button
-                  onClick={(e) => { e.stopPropagation(); removeFromCart(item.id); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    decreaseQty(item.id);
+                  }}
+                >
+                  -
+                </button>
+                <span>{item.quantity}</span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    increaseQty(item.id);
+                  }}
+                >
+                  +
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeFromCart(item.id);
+                  }}
                   style={{ color: "red" }}
                 >
                   ✕
