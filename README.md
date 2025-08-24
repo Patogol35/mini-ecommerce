@@ -15,7 +15,7 @@ Funcionalidades
 
 ---
 
-Tecnologías utilizadas
+⚙️ Tecnologías utilizadas
 
 - React
 - Context API
