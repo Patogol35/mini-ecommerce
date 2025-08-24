@@ -1,4 +1,3 @@
-
 /* General Reset */
 * {
   box-sizing: border-box;
@@ -11,7 +10,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem 1rem 12rem; /* espacio extra para no tapar productos */
+  padding: 2rem 1rem 12rem; /* 👈 espacio para que el carrito no tape productos */
   text-align: center;
   background-color: #f4f6f9;
   color: #222;
@@ -21,23 +20,23 @@
 .header {
   text-align: center;
   background: linear-gradient(135deg, #007bff, #0056b3);
-  padding: 40px 20px;
+  padding: 30px 20px;
   margin-bottom: 40px;
   color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .header h1 {
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-/* Grid de productos */
+/* Grid de productos - deslizable */
 .product-grid {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   overflow-x: auto;
   padding: 20px;
   scroll-behavior: smooth;
@@ -48,7 +47,7 @@
 }
 
 .product-grid::-webkit-scrollbar-thumb {
-  background: #aaa;
+  background: #bbb;
   border-radius: 4px;
 }
 
@@ -58,39 +57,39 @@
 
 /* Cards */
 .card {
-  flex: 0 0 260px;
+  flex: 0 0 250px;
   background-color: #fff;
-  padding: 22px;
-  border-radius: 18px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
 }
 
 .card img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 12px;
   margin-bottom: 15px;
 }
 
 .card h3 {
-  margin: 12px 0;
+  margin: 10px 0;
   font-size: 20px;
   font-weight: 600;
   color: #111;
 }
 
 .card p {
-  color: #555;
-  font-size: 16px;
-  margin-bottom: 18px;
+  color: #444;
+  font-size: 15px;
+  margin-bottom: 15px;
 }
 
 /* Botones */
@@ -98,10 +97,10 @@
 .pay-button {
   background: linear-gradient(135deg, #007bff, #0056b3);
   color: white;
-  padding: 10px 20px;
+  padding: 10px 18px;
   border: none;
-  border-radius: 10px;
-  font-size: 15px;
+  border-radius: 8px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -110,10 +109,10 @@
 .card button:hover,
 .pay-button:hover {
   background: linear-gradient(135deg, #0056b3, #003f8a);
-  transform: scale(1.07);
+  transform: scale(1.05);
 }
 
-/* Carrito en desktop */
+/* Carrito */
 .cart {
   position: fixed;
   bottom: 0;
@@ -132,11 +131,9 @@
 }
 
 .cart h2 {
-  margin-bottom: 18px;
+  margin-bottom: 15px;
   font-size: 22px;
-  font-weight: 700;
-  color: #111;
-  text-align: left;
+  color: #222;
 }
 
 .cart-item {
@@ -144,83 +141,60 @@
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #eee;
-  padding: 14px 0;
-}
-
-.cart-item:last-child {
-  border-bottom: 1px solid #eee;
+  padding: 12px 0;
 }
 
 .cart-item-controls button {
-  padding: 6px 12px;
-  margin: 0 4px;
-  border-radius: 8px;
-  background-color: #f4f4f4;
+  padding: 6px 10px;
+  margin: 0 3px;
+  border-radius: 6px;
+  background-color: #f1f1f1;
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .cart-item-controls button:hover {
   background-color: #ddd;
-  transform: scale(1.1);
 }
 
-/* Total */
 .cart-total {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  padding-top: 20px;
-  font-size: 20px;
+  padding-top: 15px;
+  font-size: 18px;
   color: #111;
-  border-top: 2px solid #ddd;
-  margin-top: 15px;
 }
 
 /* Botón de pago */
 .pay-button {
-  margin-top: 20px;
+  margin-top: 15px;
   background: linear-gradient(135deg, #28a745, #1e7e34);
-  font-size: 16px;
-  padding: 12px 25px;
-  border-radius: 12px;
 }
 .pay-button:hover {
   background: linear-gradient(135deg, #218838, #166628);
 }
 
-/* 📱 Responsive para móviles */
+/* Responsive mobile */
 @media (max-width: 768px) {
   #root {
-    padding: 1rem 1rem 1rem; /* quitamos espacio extra en móvil */
+    padding: 1rem 1rem 10rem; /* 👈 deja espacio para carrito */
+  }
+
+  .product-grid {
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .card {
+    flex: 0 0 200px;
+    padding: 15px;
   }
 
   .cart {
-    bottom: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    height: 100%;          /* carrito ocupa toda la pantalla */
     max-width: 100%;
-    max-height: 100%;
-    border-radius: 0;      /* sin bordes redondeados */
-    padding: 20px;
-  }
-
-  .cart h2 {
-    text-align: center;
-    font-size: 24px;
-  }
-
-  .cart-total {
-    font-size: 22px;
-  }
-
-  .pay-button {
-    font-size: 18px;
-    padding: 14px;
-    border-radius: 14px;
-    width: 100%;
+    border-radius: 15px 15px 0 0;
+    max-height: 300px;
   }
 }
