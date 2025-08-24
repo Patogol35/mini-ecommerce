@@ -13,6 +13,7 @@
   padding: 2rem;
   text-align: center;
   background-color: #f9fafc;
+  color: #222; /* Texto más oscuro */
 }
 
 /* Header */
@@ -32,16 +33,31 @@
   letter-spacing: 1px;
 }
 
-/* Grid de productos */
+/* Grid de productos - deslizable */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 25px;
+  display: flex; /* cambiamos grid por flex */
+  gap: 20px;
+  overflow-x: auto; /* permite desplazamiento horizontal */
   padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.product-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
+.product-grid::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* Cards */
 .card {
+  flex: 0 0 250px; /* tamaño fijo para scroll horizontal */
   background-color: #fff;
   padding: 20px;
   border-radius: 15px;
@@ -67,11 +83,11 @@
   margin: 10px 0;
   font-size: 20px;
   font-weight: 600;
-  color: #333;
+  color: #111; /* más oscuro */
 }
 
 .card p {
-  color: #666;
+  color: #444;
   font-size: 15px;
   margin-bottom: 15px;
 }
@@ -115,7 +131,7 @@
 .cart h2 {
   margin-bottom: 15px;
   font-size: 22px;
-  color: #333;
+  color: #222;
 }
 
 .cart-item {
@@ -146,6 +162,7 @@
   font-weight: bold;
   padding-top: 15px;
   font-size: 18px;
+  color: #111;
 }
 
 /* Botón de pago */
