@@ -103,7 +103,7 @@
   transform: scale(1.05);
 }
 
-/* Carrito (móvil/tablet por defecto) */
+/* Carrito (modo móvil/tablet por defecto) */
 .cart {
   position: fixed;
   bottom: 0;
@@ -166,8 +166,8 @@
   background: linear-gradient(135deg, #218838, #166628);
 }
 
-/* 📱 Responsive mobile */
-@media (max-width: 768px) {
+/* 📱 Responsive mobile (portrait) */
+@media (max-width: 768px) and (orientation: portrait) {
   .cart {
     max-width: 100%;
     border-radius: 15px 15px 0 0;
@@ -205,10 +205,36 @@
     max-height: calc(100vh - 40px);
   }
 
-  /* En desktop no es colapsable */
   .cart.collapsed,
   .cart.open {
     max-height: calc(100vh - 40px);
+    cursor: default;
+  }
+}
+
+/* 📺 Landscape (móviles o tablets en horizontal) */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* productos | carrito */
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .cart {
+    position: sticky;
+    top: 10px;
+    bottom: auto;
+    transform: none;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    max-height: calc(100vh - 20px);
+  }
+
+  .cart.collapsed,
+  .cart.open {
+    max-height: calc(100vh - 20px);
     cursor: default;
   }
 }
