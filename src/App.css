@@ -10,7 +10,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem 1rem 22rem; /* 👈 más espacio para carrito */
+  padding: 2rem 1rem;
   text-align: center;
   background-color: #f4f6f9;
   color: #222;
@@ -31,6 +31,12 @@
   font-size: 32px;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+/* Contenedor general (productos + carrito) */
+.content {
+  display: flex;
+  flex-direction: column; /* móvil primero */
 }
 
 /* Grid de productos */
@@ -97,9 +103,9 @@
   transform: scale(1.05);
 }
 
-/* Carrito */
+/* Carrito (modo móvil/tablet: abajo) */
 .cart {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -109,8 +115,8 @@
   padding: 20px 25px;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -6px 25px rgba(0,0,0,0.15);
-  max-height: 350px;       /* 👈 nunca crece más de esto */
-  overflow-y: auto;        /* 👈 scroll interno */
+  max-height: 350px;
+  overflow-y: auto;
   transition: all 0.3s ease;
   z-index: 1000;
 }
@@ -163,10 +169,6 @@
 
 /* 📱 Responsive mobile */
 @media (max-width: 768px) {
-  #root {
-    padding: 1rem 1rem 18rem; /* 👈 ajusta espacio para carrito */
-  }
-
   .product-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 12px;
@@ -201,5 +203,26 @@
   .cart.collapsed.open {
     max-height: 70vh;   /* se expande cuando el usuario toca */
     overflow-y: auto;
+  }
+}
+
+/* 🖥️ Desktop: carrito a la derecha */
+@media (min-width: 1024px) {
+  .content {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* productos | carrito */
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .cart {
+    position: sticky;  /* 👈 se queda fija pero dentro del flujo */
+    top: 20px;
+    bottom: auto;
+    transform: none;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-height: calc(100vh - 40px);
   }
 }
