@@ -2,9 +2,9 @@ Mini E-commerce 🛒
 
 Proyecto creado con **React + Vite**, sin backend, simulando una tienda en línea con carrito de compras funcional.
 
----
+--- 
 
-Funcionalidades
+✨ Funcionalidades
 
 - Ver listado de productos
 - Agregar al carrito
