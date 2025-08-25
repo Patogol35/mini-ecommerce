@@ -319,4 +319,22 @@ body {
     cursor: pointer;
     z-index: 1100;
   }
+/* 🎨 Animación de botones del carrito */
+.cart-item-controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cart-item-controls button:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: brightness(1.1);
+}
+
+.cart-item-controls button:active {
+  transform: scale(0.95);
+}
+
+  
 }
