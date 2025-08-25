@@ -7,14 +7,21 @@ function Cart() {
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  // Detectar si está en landscape
+  // Detectar landscape o portrait mobile
   const isLandscape = () =>
     window.innerWidth <= 1024 && window.innerWidth > window.innerHeight;
+  const isPortrait = () =>
+    window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
 
   return (
     <>
-      {/* Botón flotante SOLO en landscape */}
-      {isLandscape() && (
+      {/* Overlay */}
+      {(isLandscape() || isPortrait()) && isOpen && (
+        <div className="cart-overlay" onClick={() => setIsOpen(false)}></div>
+      )}
+
+      {/* Botón flotante para abrir */}
+      {(isLandscape() || isPortrait()) && (
         <button
           className="cart-toggle-btn"
           onClick={() => setIsOpen(!isOpen)}
@@ -23,14 +30,7 @@ function Cart() {
         </button>
       )}
 
-      <div
-        className={`cart ${isOpen ? "open" : "collapsed"}`}
-        onClick={() => {
-          if (!isLandscape()) {
-            setIsOpen(!isOpen);
-          }
-        }}
-      >
+      <div className={`cart ${isOpen ? "open" : "collapsed"}`}>
         <h2>🛒 Carrito</h2>
         {cart.length === 0 ? (
           <p>Tu carrito está vacío.</p>
@@ -67,7 +67,6 @@ function Cart() {
                       e.stopPropagation();
                       removeFromCart(item.id);
                     }}
-                    style={{ color: "red" }}
                   >
                     ✕
                   </button>
