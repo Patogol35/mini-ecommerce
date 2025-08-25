@@ -7,7 +7,6 @@ function Cart() {
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  // Detectar landscape o portrait mobile
   const isLandscape = () =>
     window.innerWidth <= 1024 && window.innerWidth > window.innerHeight;
   const isPortrait = () =>
@@ -15,17 +14,12 @@ function Cart() {
 
   return (
     <>
-      {/* Overlay */}
       {(isLandscape() || isPortrait()) && isOpen && (
         <div className="cart-overlay" onClick={() => setIsOpen(false)}></div>
       )}
 
-      {/* Botón flotante para abrir */}
       {(isLandscape() || isPortrait()) && (
-        <button
-          className="cart-toggle-btn"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="cart-toggle-btn" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? "Cerrar 🛒" : "Abrir 🛒"}
         </button>
       )}
@@ -45,30 +39,63 @@ function Cart() {
                   </small>
                 </div>
                 <div className="cart-item-controls">
+                  {/* ➖ botón restar */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       decreaseQty(item.id);
                     }}
+                    aria-label="Disminuir"
                   >
-                    -
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Z" />
+                    </svg>
                   </button>
+
                   <span>{item.quantity}</span>
+
+                  {/* ➕ botón aumentar */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       increaseQty(item.id);
                     }}
+                    aria-label="Aumentar"
                   >
-                    +
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 1a.75.75 0 0 1 .75.75v5.5h5.5a.75.75 0 0 1 0 1.5h-5.5v5.5a.75.75 0 0 1-1.5 0v-5.5h-5.5a.75.75 0 0 1 0-1.5h5.5v-5.5A.75.75 0 0 1 8 1Z" />
+                    </svg>
                   </button>
+
+                  {/* ❌ botón eliminar */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       removeFromCart(item.id);
                     }}
+                    aria-label="Eliminar"
                   >
-                    ✕
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708Z" />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -79,10 +106,7 @@ function Cart() {
               <span>${total.toFixed(2)}</span>
             </div>
 
-            <button
-              className="pay-button"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <button className="pay-button" onClick={(e) => e.stopPropagation()}>
               Pagar
             </button>
           </>
