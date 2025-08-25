@@ -4,6 +4,10 @@ Proyecto creado con **React + Vite**, sin backend, simulando una tienda en líne
 
 --- 
 
+Ver la aplicación desplegada en Vercel:
+
+---
+
 ✨ Funcionalidades
 
 - Ver listado de productos
