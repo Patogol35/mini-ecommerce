@@ -34,19 +34,35 @@ https://jorgepatriciosantamariacherrezminie.vercel.app/
 
 1. Clona el repositorio:
 
+```bash
+
 git clone https://github.com/Patogol35/mini-ecommerce
+
+```
 
 2. Ingresa a la carpeta del proyecto:
 
+```bash
+
 cd mini-ecommerce
 
+```
+
 3. Instala las dependencias:
+
+```bash
   
 npm install
 
+```
+
 4. Ejecuta el proyecto:
 
-npm run dev 
+```bash
+
+npm run dev
+
+```
 
 5. Abre en el navegador:
   
